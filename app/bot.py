@@ -5,7 +5,7 @@ from telegram.utils.helpers import escape_markdown
 
 from telegram import InlineQueryResultArticle, ParseMode, \
     InputTextMessageContent
-from telegram.ext import Updater, InlineQueryHandler, CommandHandler
+from telegram.ext import Updater, InlineQueryHandler
 import logging
 from complex_generators import *
 from config import BOT_TOKEN
@@ -17,18 +17,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - '
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
-
-
-# Define a few command handlers. These usually take the two arguments bot and
-# update. Error handlers also receive the raised TelegramError object in error.
-# def start(bot, update):
-#     """Send a message when the command /start is issued."""
-#     update.message.reply_text('Hi!')
-#
-#
-# def help(bot, update):
-#     """Send a message when the command /help is issued."""
-#     update.message.reply_text('Help!')
 
 
 def inlinequery(bot, update):
