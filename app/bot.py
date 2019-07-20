@@ -58,6 +58,7 @@ def inlinequery(bot, update):
             description="𝓐𝓵𝓼𝓸 𝓯𝓪𝓷𝓬𝔂",
             input_message_content=InputTextMessageContent(
                 cursive(query))),
+        # REMOVED DUE TO BUGGY BEHAVIOR ON TELEGRAM
         # InlineQueryResultArticle(
         #     id=uuid4(),
         #     title="Large",
