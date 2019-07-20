@@ -1,15 +1,13 @@
-
+import logging
 from uuid import uuid4
-
-from telegram.utils.helpers import escape_markdown
 
 from telegram import InlineQueryResultArticle, ParseMode, \
     InputTextMessageContent
 from telegram.ext import Updater, InlineQueryHandler
-import logging
+from telegram.utils.helpers import escape_markdown
+
 from complex_generators import *
 from config import BOT_TOKEN
-
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - '
@@ -60,14 +58,12 @@ def inlinequery(bot, update):
             description="𝓐𝓵𝓼𝓸 𝓯𝓪𝓷𝓬𝔂",
             input_message_content=InputTextMessageContent(
                 cursive(query))),
-        InlineQueryResultArticle(
-            id=uuid4(),
-            title="Large",
-            description="ＢＩＧ！",
-            input_message_content=InputTextMessageContent(
-                large(query))),
-
-
+        # InlineQueryResultArticle(
+        #     id=uuid4(),
+        #     title="Large",
+        #     description="ＢＩＧ！",
+        #     input_message_content=InputTextMessageContent(
+        #         large(query))),
 
         InlineQueryResultArticle(
             id=uuid4(),
