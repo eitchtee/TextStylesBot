@@ -58,6 +58,13 @@ def inlinequery(bot, update):
             description="𝓐𝓵𝓼𝓸 𝓯𝓪𝓷𝓬𝔂",
             input_message_content=InputTextMessageContent(
                 cursive(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Spaced",
+            description="S P A C E D",
+            input_message_content=InputTextMessageContent(
+                ' '.join([char.upper() for char in
+                          ' '.join(query.split(sep=None))]))),
         # REMOVED DUE TO BUGGY BEHAVIOR ON TELEGRAM
         # InlineQueryResultArticle(
         #     id=uuid4(),
