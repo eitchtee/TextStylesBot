@@ -3,7 +3,7 @@ from uuid import uuid4
 
 from telegram import InlineQueryResultArticle, ParseMode, \
     InputTextMessageContent
-from telegram.ext import Updater, InlineQueryHandler
+from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 from telegram.utils.helpers import escape_markdown
 
 from complex_generators import *
@@ -15,6 +15,21 @@ logging.basicConfig(format='%(asctime)s - %(name)s - '
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
+
+
+def start(bot, update):
+    # Send the message with menu
+    update.message.reply_text("*Welcome to Text Fomatting Bot!*\n"
+                              "Currently I only work via inline query,"
+                              "on any conversations summon me by using @txtfrmt"
+                              ", type your message and choose the style you"
+                              " want.\n\n"
+                              "My code can be found [here]"
+                              "(https://github.com/eitchtee/TextStylesBot).\n"
+                              "Report any issue or suggestions [here]"
+                              "(https://github.com/eitchtee/TextStylesBot/issues)\n\n"
+                              "🤖 Hope you like me!",
+                              parse_mode='Markdown')
 
 
 def inlinequery(bot, update):
@@ -137,7 +152,7 @@ def main():
     dp = updater.dispatcher
 
     # on different commands - answer in Telegram
-    # dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CommandHandler("start", start))
     # dp.add_handler(CommandHandler("help", help))
 
     # on noncommand i.e message - echo the message on Telegram
