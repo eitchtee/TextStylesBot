@@ -36,12 +36,6 @@ def inlinequery(bot, update):
                 upper_and_lower(query))),
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Cebolinha",
-            description="Troque seu R por um L",
-            input_message_content=InputTextMessageContent(
-                cebolinha(query))),
-        InlineQueryResultArticle(
-            id=uuid4(),
             title="Binary",
             description="0s and 1s",
             input_message_content=InputTextMessageContent(
@@ -65,13 +59,33 @@ def inlinequery(bot, update):
             input_message_content=InputTextMessageContent(
                 ' '.join([char.upper() for char in
                           ' '.join(query.split(sep=None))]))),
-        # REMOVED DUE TO BUGGY BEHAVIOR ON TELEGRAM
-        # InlineQueryResultArticle(
-        #     id=uuid4(),
-        #     title="Large",
-        #     description="ＢＩＧ！",
-        #     input_message_content=InputTextMessageContent(
-        #         large(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Circled",
+            description="Ⓒⓘⓡⓒⓛⓔⓢ",
+            input_message_content=InputTextMessageContent(circled(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Filled Circled",
+            description="🅒🅘🅡🅒🅛🅔🅢 🅑🅤🅣 🅕🅘🅛🅛🅔🅓",
+            input_message_content=InputTextMessageContent(
+                negative_circled(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Parenthesis",
+            description="🄟⒜⒭⒠⒩⒯⒣⒠⒮⒤⒮",
+            input_message_content=InputTextMessageContent(parenthesis(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Gothic",
+            description="𝔊𝔬𝔱𝔥𝔦𝔠",
+            input_message_content=InputTextMessageContent(fraktur(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Full-width",
+            description="ＢＩＧ！",
+            input_message_content=InputTextMessageContent(
+                large(query))),
 
         InlineQueryResultArticle(
             id=uuid4(),
@@ -94,6 +108,12 @@ def inlinequery(bot, update):
             input_message_content=InputTextMessageContent(
                 message_text="```{}```".format(escape_markdown(query)),
                 parse_mode=ParseMode.MARKDOWN)),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Cebolinha",
+            description="Troque seu R por um L",
+            input_message_content=InputTextMessageContent(
+                cebolinha(query))),
     ]
 
     update.inline_query.answer(results)

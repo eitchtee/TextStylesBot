@@ -145,8 +145,11 @@ def zalgo_txt(txt):
 
 
 def double_struck(txt):
-    normal_letters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    double_struck_letter = "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ"
+    normal_letters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLM" \
+                     "NOPQRSTUVWXYZ"
+    double_struck_letter = \
+        "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄" \
+                           "ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ"
 
     trantab = txt.maketrans(normal_letters, double_struck_letter)
 
@@ -155,8 +158,11 @@ def double_struck(txt):
 
 
 def cursive(txt):
-    normal_letters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    cursive_letter = "0123456789𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩"
+    normal_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLM" \
+                     "NOPQRSTUVWXYZ"
+    cursive_letter = \
+        "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜" \
+                     "𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩"
 
     trantab = txt.maketrans(normal_letters, cursive_letter)
 
@@ -165,8 +171,12 @@ def cursive(txt):
 
 
 def large(txt):
-    normal_letters = "`1234567890-=~!@#$%^&*()_+qwertyuiop[]QWERTYUIOP{}|asdfghjkl;'ASDFGHJKL:\zxcvbnm,./ZXCVBNM<>?"
-    fancy_letter = "`１２３４５６７８９０－＝~！＠＃＄％^＆＊（）_＋ｑｗｅｒｔｙｕｉｏｐ[]ＱＷＥＲＴＹＵＩＯＰ{}|ａｓｄｆｇｈｊｋｌ；＇ＡＳＤＦＧＨＪＫＬ：\ｚｘｃｖｂｎｍ，．／ＺＸＣＶＢＮＭ<>？"
+    normal_letters = "`1234567890-=~!@#$%^&*()_+qwertyuiop[]QWERTYUIOP" \
+                     "{}|asdfghjkl;'ASDFGHJKL:" \
+                     "\\zxcvbnm,./ZXCVBNM<>?"
+    fancy_letter = "`１２３４５６７８９０－＝~！＠＃＄％^＆＊（）_＋ｑｗｅｒｔｙｕｉｏｐ" \
+                   "[]ＱＷＥＲＴＹＵＩＯＰ{}|ａｓｄｆｇｈｊｋｌ；＇ＡＳＤＦＧＨＪＫＬ：" \
+                   "\\ｚｘｃｖｂｎｍ，．／ＺＸＣＶＢＮＭ<>？"
 
     trantab = txt.maketrans(normal_letters, fancy_letter)
 
@@ -174,4 +184,57 @@ def large(txt):
     return txt
 
 
-print(large('BIG!'))
+def circled(txt):
+    normal_letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcde" \
+                     "fghijklmnopqrstuvwxyz"
+    fancy_letter = "⓪①②③④⑤⑥⑦⑧⑨ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔ" \
+                   "ⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ"
+
+    trantab = txt.maketrans(normal_letters, fancy_letter)
+
+    txt = txt.translate(trantab)
+    return txt
+
+
+def negative_circled(txt):
+    normal_letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcde" \
+                     "fghijklmnopqrstuvwxyz"
+    fancy_letter = \
+        "🄌➊➋➌➍➎➏➐➑➒🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅑🅒🅓🅔" \
+                   "🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩"
+
+    trantab = txt.maketrans(normal_letters, fancy_letter)
+
+    txt = txt.translate(trantab)
+    return txt
+
+
+def parenthesis(txt):
+    normal_letters = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+                     "abcdefghijklmnopqrstuvwxyz"
+    fancy_letter = \
+        "⑴⑵⑶⑷⑸⑹⑺⑻⑼🄐🄑🄒🄓🄔🄕🄖🄗🄘🄙🄚🄛🄜🄝🄞🄟🄠🄡🄢🄣🄤🄥🄦🄧🄨🄩" \
+                   "⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵"
+
+    trantab = txt.maketrans(normal_letters, fancy_letter)
+
+    txt = txt.translate(trantab)
+    return txt
+
+
+def fraktur(txt):
+    normal_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    fancy_letter = \
+        "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"
+
+    trantab = txt.maketrans(normal_letters, fancy_letter)
+
+    txt = txt.translate(trantab)
+    return txt
+
+
+print(large('Full-width'))
+print(circled('Circled'))
+print(negative_circled('Negative circled'))
+print(parenthesis('Parenthesis'))
+print(fraktur('Fraktur'))
