@@ -19,18 +19,19 @@ logger = logging.getLogger(__name__)
 
 def start(bot, update):
     # Send the message with menu
-    update.message.reply_text("*Welcome to Text Fomatting Bot!*\n"
-                              "Currently I only work via inline query,"
-                              "on any conversations summon me by using @txtfrmt"
+    update.message.reply_text("*Welcome to Text Fomatting Bot!*\n\n"
+                              "Currently I only work via inline query, "
+                              "on any conversation summon me using @txtfrmtbot"
                               ", type your message and choose the style you"
                               " want.\n\n"
                               "My code can be found [here]"
                               "(https://github.com/eitchtee/TextStylesBot).\n"
                               "Report any issue or suggestions [here]"
-                              "(https://github.com/eitchtee/TextStylesBot/issues)\n\n"
+                              "(https://github.com/eitchtee/TextStylesBot/issues).\n\n"
                               "🤖 Hope you like me!",
-                              parse_mode='Markdown')
-
+                              parse_mode='Markdown',
+                              disable_web_page_preview=True)
+    bot.send_message()
 
 def inlinequery(bot, update):
     """Handle the inline query."""
