@@ -82,6 +82,11 @@ def inlinequery(bot, update):
             input_message_content=InputTextMessageContent(fraktur(query))),
         InlineQueryResultArticle(
             id=uuid4(),
+            title="Leet Speak",
+            description="1337, y0!",
+            input_message_content=InputTextMessageContent(leet(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
             title="Full-width",
             description="ＢＩＧ！",
             input_message_content=InputTextMessageContent(

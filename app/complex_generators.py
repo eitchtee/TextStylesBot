@@ -233,8 +233,11 @@ def fraktur(txt):
     return txt
 
 
-print(large('Full-width'))
-print(circled('Circled'))
-print(negative_circled('Negative circled'))
-print(parenthesis('Parenthesis'))
-print(fraktur('Fraktur'))
+def leet(txt):
+    normal_letters = "tTiIbBoOsSaAeElLzZ"
+    fancy_letter = "771188005544331122"
+
+    trantab = txt.maketrans(normal_letters, fancy_letter)
+
+    txt = txt.translate(trantab)
+    return txt
