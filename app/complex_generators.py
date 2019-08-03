@@ -12,8 +12,9 @@ def cebolinha(txt):
             word = word.replace('@¨#', '\n')
         else:
             check_word = ''.join([i for i in word if i.isalpha()])
-            if check_word[len(check_word) - 1] != 'r' and check_word[
-                                                    len(check_word) - 1] != 'R':
+            if len(check_word) >= 1 and \
+                    check_word[len(check_word) - 1] != 'r' and \
+                    check_word[len(check_word) - 1] != 'R':
                 word = word.replace('r', 'l').replace('R', 'L')
             else:
                 count_r_down = word.count('r')
@@ -241,3 +242,6 @@ def leet(txt):
 
     txt = txt.translate(trantab)
     return txt
+
+
+print(cebolinha('1 2 3'))
