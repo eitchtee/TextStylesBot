@@ -84,7 +84,7 @@ class Zalgo:
             a = letter  # create a dummy letter
 
             # skip this letter we can't add a diacritic to it
-            if not a.isalpha():
+            if not a.isalnum():
                 new_letters.append(a)
                 continue
 
