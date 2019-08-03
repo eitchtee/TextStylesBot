@@ -242,6 +242,3 @@ def leet(txt):
 
     txt = txt.translate(trantab)
     return txt
-
-
-print(cebolinha('1 2 3'))
