@@ -111,7 +111,13 @@ def inlinequery(bot, update):
             description="ＢＩＧ！",
             input_message_content=InputTextMessageContent(
                 message_text=large(query))),
-
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Reversed",
+            description="desreveR",
+            input_message_content=InputTextMessageContent(
+                message_text=query[::-1])),
+        
         InlineQueryResultArticle(
             id=uuid4(),
             title="Bold",
