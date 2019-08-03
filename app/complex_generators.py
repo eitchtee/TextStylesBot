@@ -242,3 +242,88 @@ def leet(txt):
 
     txt = txt.translate(trantab)
     return txt
+
+
+def morse_code(txt):
+    morse_table = {
+        'A': '.-',
+        'B': '-...',
+        'C': '-.-.',
+        'D': '-..',
+        'E': '.',
+        'F': '..-.',
+        'G': '--.',
+        'H': '....',
+        'I': '..',
+        'J': '.---',
+        'K': '-.-',
+        'L': '.-..',
+        'M': '--',
+        'N': '-.',
+        'O': '---',
+        'P': '.--.',
+        'Q': '--.-',
+        'R': '.-.',
+        'S': '...',
+        'T': '-',
+        'U': '..-',
+        'V': '...-',
+        'W': '.--',
+        'X': '-..-',
+        'Y': '-.--',
+        'Z': '--..',
+        '1': '.----',
+        '2': '..---',
+        '3': '...--',
+        '4': '....-',
+        '5': '.....',
+        '6': '-....',
+        '7': '--...',
+        '8': '---..',
+        '9': '----.',
+        '0': '-----',
+        'À': '.--.-',
+        'Ç': '-.-..',
+        'È': '.-..-',
+        'É': '..-..',
+        '.': '.-.-.-',
+        ',': '--..--',
+        '?': '..--..',
+        "'": '.----.',
+        '!': '-.-.--',
+        '/': '-..-.',
+        '(': '-.--.',
+        ')': '-.--.-',
+        '&': '.-...',
+        ':': '---...',
+        ';': '-.-.-.',
+        '=': '-...-',
+        '-': '-....-',
+        '_': '..--.-',
+        '"': '.-..-.',
+        '$': '...-..-',
+        '@': '.--.-.'
+    }
+
+    txt_words = txt.split()
+
+    encoded_string = []
+    index = 0
+    for word in txt_words:
+        word = word.strip()
+
+        for letter in word:
+            try:
+                encoded_string.append(morse_table[letter.upper()])
+            except KeyError:
+                encoded_string.append('#')
+
+        if len(txt_words) > 1 and index < (len(txt_words) - 1):
+            encoded_string.append('/')
+        index += 1
+
+    return_txt = ' '.join(encoded_string)
+    if return_txt:
+        return return_txt
+    else:
+        return ''

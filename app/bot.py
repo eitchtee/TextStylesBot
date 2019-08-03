@@ -117,6 +117,11 @@ def inlinequery(bot, update):
             description="desreveR",
             input_message_content=InputTextMessageContent(
                 message_text=query[::-1])),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Morse Code",
+            description="-- --- .-. ... .",
+            input_message_content=InputTextMessageContent(morse_code(query))),
 
         InlineQueryResultArticle(
             id=uuid4(),

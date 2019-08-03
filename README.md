@@ -21,6 +21,7 @@ Get fancy text styles for your Telegram Messages
 1. 𝔉𝔯𝔞𝔨𝔱𝔲𝔯
 1. 1337 5p34k
 1. desreveR (Reversed)
+1. -- --- .-. ... . (Morse Code)
 1. **Bold**
 1. *Italic*
 1. `Fixed width`
