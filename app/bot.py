@@ -117,7 +117,7 @@ def inlinequery(bot, update):
             description="desreveR",
             input_message_content=InputTextMessageContent(
                 message_text=query[::-1])),
-        
+
         InlineQueryResultArticle(
             id=uuid4(),
             title="Bold",
@@ -146,8 +146,8 @@ def inlinequery(bot, update):
             input_message_content=InputTextMessageContent(
                 message_text=cebolinha(query))),
     ]
-
-    update.inline_query.answer(results)
+    if query:
+        update.inline_query.answer(results)
 
 
 def error(bot, update, erro):
