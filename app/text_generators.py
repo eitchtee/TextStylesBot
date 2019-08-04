@@ -340,3 +340,42 @@ def spaced(txt):
 
 def reverse(txt):
     return txt[::-1]
+
+
+def strikethrough(txt):
+    result = ['\u0336']
+    for c in txt:
+        result.append(c + '\u0336')
+    return '\u0336'.join('\u0336' + txt) + '\u0336'
+
+
+def small_caps(txt):
+    normal_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    fancy_letter = "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ"
+
+    trantab = txt.maketrans(normal_letters, fancy_letter)
+
+    txt = txt.translate(trantab)
+    return txt
+
+
+def superscript(txt):
+    normal_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    fancy_letter = "ᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖᵠʳˢᵗᵘᵛʷˣʸᶻᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖᵠʳˢᵗᵘᵛʷˣʸᶻ"
+
+    trantab = txt.maketrans(normal_letters, fancy_letter)
+
+    txt = txt.translate(trantab)
+    return txt
+
+
+def underline(txt):
+    result = []
+    for c in txt:
+        if c.isalnum():
+            result.append(c + '\u0332')
+        elif c == ' ':
+            result.append(c + '\u0332')
+        else:
+            result.append(c)
+    return ''.join(result)

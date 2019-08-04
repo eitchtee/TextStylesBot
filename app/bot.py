@@ -122,6 +122,30 @@ def inlinequery(bot, update):
             description="-- --- .-. ... .",
             input_message_content=InputTextMessageContent(
                 morse_code(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Strikethrough",
+            description="̶̶S̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶",
+            input_message_content=InputTextMessageContent(
+                strikethrough(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Small Caps",
+            description="sᴍᴀʟʟ",
+            input_message_content=InputTextMessageContent(
+                small_caps(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Superscript",
+            description="Superˢᶜʳᶦᵖᵗ",
+            input_message_content=InputTextMessageContent(
+                superscript(query))),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Underline",
+            description="U̲n̲d̲e̲r̲l̲i̲n̲e̲",
+            input_message_content=InputTextMessageContent(
+                underline(query))),
 
         # InlineQueryResultArticle(
         #     id=uuid4(),
