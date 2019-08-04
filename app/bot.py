@@ -1,13 +1,13 @@
 import logging
 from uuid import uuid4
 
-from telegram import InlineQueryResultArticle, ParseMode, \
-    InputTextMessageContent
+from telegram import InlineQueryResultArticle, InputTextMessageContent
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
-from telegram.utils.helpers import escape_markdown
 
 from config import BOT_TOKEN
 from text_generators import *
+
+# from telegram.utils.helpers import escape_markdown
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - '
@@ -123,27 +123,28 @@ def inlinequery(bot, update):
             input_message_content=InputTextMessageContent(
                 morse_code(query))),
 
-        InlineQueryResultArticle(
-            id=uuid4(),
-            title="Bold",
-            description="*text*",
-            input_message_content=InputTextMessageContent(
-                message_text="*{}*".format(escape_markdown(query)),
-                parse_mode=ParseMode.MARKDOWN)),
-        InlineQueryResultArticle(
-            id=uuid4(),
-            title="Italic",
-            description="_text_",
-            input_message_content=InputTextMessageContent(
-                message_text="_{}_".format(escape_markdown(query)),
-                parse_mode=ParseMode.MARKDOWN)),
-        InlineQueryResultArticle(
-            id=uuid4(),
-            title="Monospace",
-            description="```text```",
-            input_message_content=InputTextMessageContent(
-                message_text="```{}```".format(escape_markdown(query)),
-                parse_mode=ParseMode.MARKDOWN)),
+        # InlineQueryResultArticle(
+        #     id=uuid4(),
+        #     title="Bold",
+        #     description="*text*",
+        #     input_message_content=InputTextMessageContent(
+        #         message_text="*{}*".format(query),
+        #         parse_mode=ParseMode.MARKDOWN)),
+        # InlineQueryResultArticle(
+        #     id=uuid4(),
+        #     title="Italic",
+        #     description="_text_",
+        #     input_message_content=InputTextMessageContent(
+        #         message_text="_{}_".format(query),
+        #         parse_mode=ParseMode.MARKDOWN)),
+        # InlineQueryResultArticle(
+        #     id=uuid4(),
+        #     title="Monospace",
+        #     description="```text```",
+        #     input_message_content=InputTextMessageContent(
+        #         message_text="```{}```".format(query),
+        #         parse_mode=ParseMode.MARKDOWN)),
+
         InlineQueryResultArticle(
             id=uuid4(),
             title="Cebolinha",
@@ -169,9 +170,7 @@ def main():
 
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
-    # dp.add_handler(CommandHandler("help", help))
 
-    # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(InlineQueryHandler(inlinequery))
 
     # log all errors

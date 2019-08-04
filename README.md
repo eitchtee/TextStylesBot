@@ -22,9 +22,9 @@ Get fancy text styles for your Telegram Messages
 1. 1337 5p34k
 1. desreveR (Reversed)
 1. -- --- .-. ... . (Morse Code)
-1. **Bold**
-1. *Italic*
-1. `Fixed width`
+1. ~~**Bold**~~
+1. ~~*Italic*~~
+1. ~~Fixed width~~
 1. Cebolinha (Changes Rs to Ls)
 
 > **⚠️ WARNING**: Some styles will not work at all with special characters (*e.g. á, é, í, ó, ú*) since they rely on the existence of a unicode equivalent, which don't exist for most characters outside the A-Z and 0-9 scope.
