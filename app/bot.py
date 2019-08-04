@@ -6,8 +6,8 @@ from telegram import InlineQueryResultArticle, ParseMode, \
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 from telegram.utils.helpers import escape_markdown
 
-from complex_generators import *
 from config import BOT_TOKEN
+from text_generators import *
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - '
@@ -55,7 +55,7 @@ def inlinequery(bot, update):
             title="Binary",
             description="0s and 1s",
             input_message_content=InputTextMessageContent(
-                message_text=' '.join(format(ord(x), 'b') for x in query))),
+                message_text=binary(query))),
         InlineQueryResultArticle(
             id=uuid4(),
             title="Double Struck",
@@ -73,8 +73,7 @@ def inlinequery(bot, update):
             title="Spaced",
             description="S P A C E D",
             input_message_content=InputTextMessageContent(
-                message_text=' '.join([char.upper() for char in
-                                       ' '.join(query.split(sep=None))]))),
+                message_text=spaced(query))),
         InlineQueryResultArticle(
             id=uuid4(),
             title="Circled",
@@ -116,12 +115,13 @@ def inlinequery(bot, update):
             title="Reversed",
             description="desreveR",
             input_message_content=InputTextMessageContent(
-                message_text=query[::-1])),
+                message_text=reverse(query))),
         InlineQueryResultArticle(
             id=uuid4(),
             title="Morse Code",
             description="-- --- .-. ... .",
-            input_message_content=InputTextMessageContent(morse_code(query))),
+            input_message_content=InputTextMessageContent(
+                morse_code(query))),
 
         InlineQueryResultArticle(
             id=uuid4(),

@@ -19,7 +19,7 @@ def cebolinha(txt):
             else:
                 count_r_down = word.count('r')
                 count_r_upper = word.count('R')
-                word = word.replace('r', 'l', count_r_down - 1).\
+                word = word.replace('r', 'l', count_r_down - 1). \
                     replace('R',
                             'L',
                             count_r_upper - 1)
@@ -150,7 +150,7 @@ def double_struck(txt):
                      "NOPQRSTUVWXYZ"
     double_struck_letter = \
         "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄" \
-                           "ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ"
+        "ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ"
 
     trantab = txt.maketrans(normal_letters, double_struck_letter)
 
@@ -163,7 +163,7 @@ def cursive(txt):
                      "NOPQRSTUVWXYZ"
     cursive_letter = \
         "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜" \
-                     "𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩"
+        "𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩"
 
     trantab = txt.maketrans(normal_letters, cursive_letter)
 
@@ -202,7 +202,7 @@ def negative_circled(txt):
                      "fghijklmnopqrstuvwxyz"
     fancy_letter = \
         "🄌➊➋➌➍➎➏➐➑➒🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅑🅒🅓🅔" \
-                   "🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩"
+        "🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩"
 
     trantab = txt.maketrans(normal_letters, fancy_letter)
 
@@ -215,7 +215,7 @@ def parenthesis(txt):
                      "abcdefghijklmnopqrstuvwxyz"
     fancy_letter = \
         "⑴⑵⑶⑷⑸⑹⑺⑻⑼🄐🄑🄒🄓🄔🄕🄖🄗🄘🄙🄚🄛🄜🄝🄞🄟🄠🄡🄢🄣🄤🄥🄦🄧🄨🄩" \
-                   "⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵"
+        "⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵"
 
     trantab = txt.maketrans(normal_letters, fancy_letter)
 
@@ -327,3 +327,16 @@ def morse_code(txt):
         return return_txt
     else:
         return ''
+
+
+def binary(txt):
+    return ' '.join(format(ord(x), 'b') for x in txt)
+
+
+def spaced(txt):
+    return ' '.join([char.upper() for char in
+                     ' '.join(txt.split(sep=None))])
+
+
+def reverse(txt):
+    return txt[::-1]
