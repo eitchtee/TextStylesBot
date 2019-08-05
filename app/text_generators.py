@@ -343,7 +343,7 @@ def reverse(txt):
 
 
 def strikethrough(txt):
-    result = ['\u0336']
+    result = []
     for c in txt:
         result.append(c + '\u0336')
     return '\u0336'.join('\u0336' + txt) + '\u0336'
