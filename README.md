@@ -31,6 +31,8 @@ Get fancy text styles for your Telegram Messages
 
 > **⚠️ WARNING**: Some styles will not work at all with special characters (*e.g. á, é, í, ó, ú*) since they rely on the existence of a unicode equivalent, which don't exist for most characters outside the A-Z and 0-9 scope.
 
+> **⚠️ WARNING**: Telegram has forced result size limitations (around 260 characters), which means that long texts will be cut if they break this limit.
+
 ---
 
 ## Removed due to bugs or unexpected behavior
