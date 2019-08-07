@@ -3,11 +3,13 @@ Get fancy text styles for your Telegram Messages
 
 ---
 
-**Try it out by messaging [@txtfrmtbot](https://t.me/txtfrmtbot) using in-line mode on Telegram!**
+## Try me!
+
+**Try it out by tagging [@txtfrmtbot](https://t.me/txtfrmtbot) on any chat screen at Telegram!**
 
 ---
 
-#### Currently supported text styles
+## Currently supported text styles
 1. Z̸͙ͫ̕a̧̼̟͂̇l̢͉̉̀g̨̟̮͉͜ó̷̮ 
 1. bRoKeN CaPsLoCk
 1. 𝔻𝕠𝕦𝕓𝕝𝕖 𝕤𝕥𝕣𝕦𝕔𝕜
@@ -31,7 +33,8 @@ Get fancy text styles for your Telegram Messages
 
 ---
 
-#### Removed due  to bugs or unexpected behavior
+## Removed due to bugs or unexpected behavior
+
 1. ~~**Bold**~~
 1. ~~*Italic*~~
 1. ~~Fixed width~~
