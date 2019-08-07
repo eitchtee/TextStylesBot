@@ -50,12 +50,12 @@ def inlinequery(bot, update):
             description="bRoKeN cApSlOcK",
             input_message_content=InputTextMessageContent(
                 message_text=upper_and_lower(query))),
-        InlineQueryResultArticle(
-            id=uuid4(),
-            title="Binary",
-            description="0s and 1s",
-            input_message_content=InputTextMessageContent(
-                message_text=binary(query))),
+        # InlineQueryResultArticle(
+        #     id=uuid4(),
+        #     title="Binary",
+        #     description="0s and 1s",
+        #     input_message_content=InputTextMessageContent(
+        #         message_text=binary(query))),
         InlineQueryResultArticle(
             id=uuid4(),
             title="Double Struck",

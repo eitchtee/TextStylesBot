@@ -10,7 +10,6 @@ Get fancy text styles for your Telegram Messages
 #### Currently supported text styles
 1. Z̸͙ͫ̕a̧̼̟͂̇l̢͉̉̀g̨̟̮͉͜ó̷̮ 
 1. bRoKeN CaPsLoCk
-1. 1000010 1101001 1101110 1100001 1110010 1111001 (Binary)
 1. 𝔻𝕠𝕦𝕓𝕝𝕖 𝕤𝕥𝕣𝕦𝕔𝕜
 1. 𝓒𝓾𝓻𝓼𝓲𝓿𝓮
 1. S P A C E D
@@ -36,3 +35,4 @@ Get fancy text styles for your Telegram Messages
 1. ~~**Bold**~~
 1. ~~*Italic*~~
 1. ~~Fixed width~~
+1. 1000010 1101001 1101110 1100001 1110010 1111001 (Binary)
