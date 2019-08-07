@@ -330,7 +330,13 @@ def morse_code(txt):
 
 
 def binary(txt):
-    return ' '.join(format(ord(x), 'b') for x in txt)
+    binary_result = []
+    for s in txt:
+        if s == ' ':
+            binary_result.append('00100000')
+        else:
+            binary_result.append(bin(ord(s)))
+    return ''.join(str(b_str) for b_str in binary_result).replace('b', '')
 
 
 def spaced(txt):
