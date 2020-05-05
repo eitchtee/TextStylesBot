@@ -37,10 +37,10 @@ def upper_and_lower(txt):
     capitalize = 0
     final_txt = []
     for letter in txt:
-        if capitalize:
+        if capitalize and letter.isalpha():
             letter = letter.upper()
             capitalize = 0
-        else:
+        elif not capitalize and letter.isalpha():
             letter = letter.lower()
             capitalize = 1
 
