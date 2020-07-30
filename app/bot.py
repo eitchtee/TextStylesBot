@@ -242,7 +242,7 @@ def inlinequery(update, context):
                 parse_mode=ParseMode.MARKDOWN)),
     )
 
-    monospace_res = "```{}```".format(query)
+    monospace_res = "`{}`".format(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
