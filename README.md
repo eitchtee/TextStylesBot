@@ -27,9 +27,12 @@ Get fancy text styles for your Telegram Messages
 1. sᴍᴀʟʟ ᴄᴀᴘs
 1. Superˢᶜʳᶦᵖᵗ
 1. U̲n̲d̲e̲r̲l̲i̲n̲e̲
+1. **Bold**
+1. *Italic*
+1. `Monospace`
 1. Cebolinha (Changes Rs to Ls)
 
-> **⚠️ WARNING**: Some styles will not work at all with special characters (*e.g. á, é, í, ó, ú*) since they rely on the existence of a unicode equivalent, which don't exist for most characters outside the A-Z and 0-9 scope.
+> **⚠️ WARNING**: Some styles will not convert special characters (*e.g. á, é, í, ó, ú*) since they rely on the existence of a unicode equivalent, which don't exist for most characters outside the A-Z and 0-9 scope.
 
 > **⚠️ WARNING**: Telegram has forced result size limitations (around 260 characters), which means that long texts will be cut if they break this limit.
 
@@ -37,7 +40,4 @@ Get fancy text styles for your Telegram Messages
 
 ## Removed due to bugs or unexpected behavior
 
-1. ~~**Bold**~~
-1. ~~*Italic*~~
-1. ~~Fixed width~~
 1. 1000010 1101001 1101110 1100001 1110010 1111001 (Binary)

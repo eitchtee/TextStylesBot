@@ -1,7 +1,8 @@
 import logging
 from uuid import uuid4
 
-from telegram import InlineQueryResultArticle, InputTextMessageContent
+from telegram import InlineQueryResultArticle, InputTextMessageContent, \
+    ParseMode
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 
 from config import BOT_TOKEN
@@ -17,7 +18,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - '
 logger = logging.getLogger(__name__)
 
 
-def start(bot, update):
+def start(update, context):
     # Send the message with menu
     update.message.reply_text("*Welcome to Text Fomatting Bot!*\n\n"
                               "Currently I only work via inline query, "
@@ -27,51 +28,55 @@ def start(bot, update):
                               "My code can be found [here]"
                               "(https://github.com/eitchtee/TextStylesBot).\n"
                               "Report any issue or suggestions [here]"
-                              "(https://github.com/eitchtee/TextStylesBot/issues).\n\n"
+                              "(https://github.com/eitchtee/TextStylesBot"
+                              "/issues).\n\n "
                               "🤖 Hope you like me!",
                               parse_mode='Markdown',
                               disable_web_page_preview=True)
 
 
-def inlinequery(bot, update):
+def inlinequery(update, context):
     """Handle the inline query."""
     query = update.inline_query.query
     results = []
 
-    if (not query):
+    if not query:
         update.inline_query.answer(results)
         return
 
+    # Z̙͑͘a̵̺̳̫̅́́͋l̝̠͑̃͘͢ǵ̨͎̰͈͂͆̑ơ̳͚̳͒
     zalgo_res = zalgo_txt(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Zalgo (Z̙͑͘a̵̺̳̫̅́́͋l̝̠͑̃͘͢ǵ̨͎̰͈͂͆̑ơ̳͚̳͒ W̹͛͝a̛͙̫̤͌ṋ͖̙̇ͧ̊͜ t͙ͮ̀̈́ͣ͞ͅsͭ̐ͥ͢͜ Ÿ̶͈́ͣ͋o̡͖̜͓͆̿ų̜͍͎͛͌̏ͨ)",
+            title="Zalgo",
             description=zalgo_res,
             input_message_content=InputTextMessageContent(
                 message_text=zalgo_res)))
 
+    # bRoKeN cApSlOcK
     up_and_down_res = upper_and_lower(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Up and Down (bRoKeN cApSlOcK)",
+            title="Up and Down",
             description=up_and_down_res,
             input_message_content=InputTextMessageContent(
                 message_text=up_and_down_res)))
 
-        # InlineQueryResultArticle(
-        #     id=uuid4(),
-        #     title="Binary",
-        #     description="0s and 1s",
-        #     input_message_content=InputTextMessageContent(
-        #         message_text=binary(query))),
+    # InlineQueryResultArticle(
+    #     id=uuid4(),
+    #     title="Binary",
+    #     description="0s and 1s",
+    #     input_message_content=InputTextMessageContent(
+    #         message_text=binary(query))),
 
+    # 𝔽𝕒𝕟𝕔𝕪
     double_struck_res = double_struck(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Double Struck (𝔽𝕒𝕟𝕔𝕪)",
+            title="Double Struck",
             description=double_struck_res,
             input_message_content=InputTextMessageContent(
                 message_text=double_struck_res)))
@@ -85,150 +90,175 @@ def inlinequery(bot, update):
             input_message_content=InputTextMessageContent(
                 message_text=cursive_res)))
 
+    # S P A C E D
     spaced_res = spaced(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Spaced (S P A C E D)",
+            title="Spaced",
             description=spaced_res,
             input_message_content=InputTextMessageContent(
                 message_text=spaced_res)))
 
+    # Ⓒⓘⓡⓒⓛⓔⓢ
     circled_res = circled(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Circled (Ⓒⓘⓡⓒⓛⓔⓢ)",
+            title="Circled",
             description=circled_res,
             input_message_content=InputTextMessageContent(
                 message_text=circled_res)))
 
+    # 🅒🅘🅡🅒🅛🅔🅢 🅑🅤🅣 🅕🅘🅛🅛🅔🅓
     negative_circled_res = negative_circled(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Filled Circled (🅒🅘🅡🅒🅛🅔🅢 🅑🅤🅣 🅕🅘🅛🅛🅔🅓)",
+            title="Filled Circled",
             description=negative_circled_res,
             input_message_content=InputTextMessageContent(
                 message_text=negative_circled_res)))
 
+    # 🄟⒜⒭⒠⒩⒯⒣⒠⒮⒤⒮
     parenthesis_res = parenthesis(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Parenthesis [🄟⒜⒭⒠⒩⒯⒣⒠⒮⒤⒮]",
+            title="Parenthesis",
             description=parenthesis_res,
             input_message_content=InputTextMessageContent(
                 message_text=parenthesis_res)))
 
+    # 𝔊𝔬𝔱𝔥𝔦𝔠
     fraktur_res = fraktur(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Gothic (𝔊𝔬𝔱𝔥𝔦𝔠)",
+            title="Gothic",
             description=fraktur_res,
             input_message_content=InputTextMessageContent(
                 message_text=fraktur_res)))
 
+    # 1337, y0!
     leet_res = leet(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Leet Speak (1337, y0!)",
+            title="Leet Speak",
             description=leet_res,
             input_message_content=InputTextMessageContent(
                 message_text=leet_res)))
 
+    # ＢＩＧ！
     large_res = large(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Full-width (ＢＩＧ！)",
+            title="Full-width",
             description=large_res,
             input_message_content=InputTextMessageContent(
                 message_text=large_res)))
 
+    # desreveR
     reverse_res = reverse(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Reversed (desreveR)",
+            title="Reversed",
             description=reverse_res,
             input_message_content=InputTextMessageContent(
                 message_text=reverse_res)))
 
+    # -- --- .-. ... .
     morse_code_res = morse_code(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Morse Code (-- --- .-. ... .)",
+            title="Morse Code",
             description=morse_code_res,
             input_message_content=InputTextMessageContent(
                 message_text=morse_code_res)))
 
+    # ̶S̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h
     strikethrough_res = strikethrough(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Strikethrough (̶̶S̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶)",
+            title="Strikethrough",
             description=strikethrough_res,
             input_message_content=InputTextMessageContent(
                 message_text=strikethrough_res)))
 
+    # sᴍᴀʟʟ
     small_caps_res = small_caps(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Small Caps (sᴍᴀʟʟ)",
+            title="Small Caps",
             description=small_caps_res,
             input_message_content=InputTextMessageContent(
                 message_text=small_caps_res)))
 
+    # Superˢᶜʳᶦᵖᵗ
     superscript_res = superscript(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Superscript (Superˢᶜʳᶦᵖᵗ)",
+            title="Superscript",
             description=superscript_res,
             input_message_content=InputTextMessageContent(
                 message_text=superscript_res)))
 
+    # U̲n̲d̲e̲r̲l̲i̲n̲e̲
     underline_res = underline(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Underline (U̲n̲d̲e̲r̲l̲i̲n̲e̲)",
+            title="Underline",
             description=underline_res,
             input_message_content=InputTextMessageContent(
                 message_text=underline_res)))
 
-        # InlineQueryResultArticle(
-        #     id=uuid4(),
-        #     title="Bold",
-        #     description="*text*",
-        #     input_message_content=InputTextMessageContent(
-        #         message_text="*{}*".format(query),
-        #         parse_mode=ParseMode.MARKDOWN)),
-        # InlineQueryResultArticle(
-        #     id=uuid4(),
-        #     title="Italic",
-        #     description="_text_",
-        #     input_message_content=InputTextMessageContent(
-        #         message_text="_{}_".format(query),
-        #         parse_mode=ParseMode.MARKDOWN)),
-        # InlineQueryResultArticle(
-        #     id=uuid4(),
-        #     title="Monospace",
-        #     description="```text```",
-        #     input_message_content=InputTextMessageContent(
-        #         message_text="```{}```".format(query),
-        #         parse_mode=ParseMode.MARKDOWN)),
+    bold_res = "*{}*".format(query)
+    results.append(
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Bold",
+            description=bold_res,
+            input_message_content=InputTextMessageContent(
+                message_text=bold_res,
+                parse_mode=ParseMode.MARKDOWN))
+    )
 
+    italic_res = "_{}_".format(query)
+    results.append(
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Italic",
+            description=italic_res,
+            input_message_content=InputTextMessageContent(
+                message_text=italic_res,
+                parse_mode=ParseMode.MARKDOWN)),
+    )
+
+    monospace_res = "```{}```".format(query)
+    results.append(
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Monospace",
+            description=monospace_res,
+            input_message_content=InputTextMessageContent(
+                message_text=monospace_res,
+                parse_mode=ParseMode.MARKDOWN)),
+    )
+
+    # Troque seu R por um L
     cebolinha_res = cebolinha(query)
     results.append(
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Cebolinha (Troque seu R por um L)",
+            title="Cebolinha",
             description=cebolinha_res,
             input_message_content=InputTextMessageContent(
                 message_text=cebolinha_res)))
@@ -236,14 +266,13 @@ def inlinequery(bot, update):
     update.inline_query.answer(results)
 
 
-def error(bot, update, erro):
-    """Log Errors caused by Updates."""
-    logger.warning('Update "%s" caused error "%s"', update, erro)
+def error_callback(update, context):
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 
 def main():
     # Create the Updater and pass it your bot's token.
-    updater = Updater(BOT_TOKEN)
+    updater = Updater(BOT_TOKEN, use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -254,7 +283,7 @@ def main():
     dp.add_handler(InlineQueryHandler(inlinequery))
 
     # log all errors
-    dp.add_error_handler(error)
+    dp.add_error_handler(error_callback)
 
     # Start the Bot
     updater.start_polling()
